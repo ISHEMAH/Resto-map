@@ -1,5 +1,6 @@
+// main.dart
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:restaurant_locator/map_screen.dart'; // Import the MapScreen widget
 
 void main() {
   runApp(MyApp());
@@ -10,36 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Restaurant Locator',
-      home: MapScreen(),
-    );
-  }
-}
-
-class MapScreen extends StatefulWidget {
-  @override
-  _MapScreenState createState() => _MapScreenState();
-}
-
-class _MapScreenState extends State<MapScreen> {
-  late GoogleMapController mapController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Restaurant Locator'),
-      ),
-      body: GoogleMap(
-        onMapCreated: (controller) {
-          setState(() {
-            mapController = controller;
-          });
-        },
-        initialCameraPosition: CameraPosition(
-          target: LatLng(37.7749, -122.4194), // San Francisco coordinates
-          zoom: 12.0,
-        ),
-      ),
+      home: MapScreen(), // Use MapScreen as the home widget
     );
   }
 }
